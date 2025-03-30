@@ -1,15 +1,17 @@
 <script setup>
-const props = defineProps(['calculo', 'valorA', 'valorB', 'operador']);
+const props = defineProps(['calculo', 'estado']);
 
 </script>
 
 <template>
     <h1>Calculadora Aritmética</h1>
     <form>
-        <input type="number" id="valor-a" placeholder="Valor A" required v-model="props.valorA" @input="props.calculo">
-        <input type="number" id="valor-b" placeholder="Valor B" required v-model="props.valorB" @input="props.calculo">
+        <input type="number" id="valor-a" placeholder="Valor A" required v-model="props.estado.valorA"
+            @input="props.calculo">
+        <input type="number" id="valor-b" placeholder="Valor B" required v-model="props.estado.valorB"
+            @input="props.calculo">
     </form>
-    <select title="Alterar operador" v-model="props.operador" @change="props.calculo">
+    <select title="Alterar operador" v-model="props.estado.operador" @change="props.calculo">
         <option value="adicao">+</option>
         <option value="subtracao">-</option>
         <option value="multiplicacao">*</option>

@@ -24,7 +24,7 @@ const calcular = () => {
     resultadoCalculo = parseFloat(estado.valorA) / parseFloat(estado.valorB);
   } else if (estado.operador === "resto" && estado.valorB != 0) {
     resultadoCalculo = parseFloat(estado.valorA) % parseFloat(estado.valorB);
-  }else {
+  } else {
     resultadoCalculo = "Erro"
   }
 
@@ -35,37 +35,37 @@ const calcular = () => {
 
 <template>
   <div class="container">
-    <Operation :valor-a="estado.valorA" :valor-b="estado.valorB" :operador="estado.operador" :calculo="calcular"/>
+    <Operation :estado="estado" :calculo="calcular" />
     <ShowResult :resultado="estado.resultado" :resultado-anterior="estado.resultadoAnterior" />
   </div>
 </template>
 
 <style scoped>
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: sans-serif;
-    list-style: none;
-    color: #FFF;
-    border: none;
-    outline: none;
-    cursor: default;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: sans-serif;
+  list-style: none;
+  color: #FFF;
+  border: none;
+  outline: none;
+  cursor: default;
+}
 
+.container {
+  background-color: #000;
+  border: 3px solid #fff;
+  padding: 40px;
+  width: 600px;
+  text-align: center;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
   .container {
-    background-color: #000;
-    border: 3px solid #fff;
-    padding: 40px;
-    width: 600px;
-    text-align: center;
-    border-radius: 20px;
+    width: 100%;
+    padding: 12px;
   }
-
-  @media (max-width: 768px) {
-    .container {
-      width: 100%;
-      padding: 12px;
-    }
-  }
+}
 </style>
